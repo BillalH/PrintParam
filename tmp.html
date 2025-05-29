@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Affichage des données du QR Code</title>
+</head>
+<body>
+  <h1>Données présentes dans le QR Code</h1>
+  <div id="contenu"></div>
+
+  <script>
+    // Fonction pour obtenir les paramètres de l'URL
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        vin: params.get('vin'),
+        immatriculation: params.get('immatriculation'),
+        referenceJante: params.get('referenceJante'),
+        nombreJante: params.get('nombreJante'),
+        or: params.get('or')
+      };
+    }
+
+    // Récupérer les paramètres et afficher les données
+    const data = getQueryParams();
+    const contenuDiv = document.getElementById("contenu");
+
+    contenuDiv.innerHTML = `
+      <h3><strong>VIN:</strong> ${data.vin}</h3>
+      <h3><strong>Immatriculation:</strong> ${data.immatriculation}</h3>
+      <h3><strong>Référence Jante:</strong> ${data.referenceJante}</h3>
+      <h3><strong>Nombre de Jantes:</strong> ${data.nombreJante}</h3>
+      <h3><strong>Numéro OR:</strong> ${data.or}</h3>
+    `;
+  </script>
+</body>
+</html>
