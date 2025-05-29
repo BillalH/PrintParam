@@ -15,9 +15,9 @@
       const params = new URLSearchParams(window.location.search);
       return {
         vin: params.get('vin'),
-        immatriculation: params.get('immatriculation'),
-        referenceJante: params.get('referenceJante'),
-        nombreJante: params.get('nombreJante'),
+        immatriculation: params.get('immat'),
+        referenceJante: params.get('ref'),
+        nombreJante: params.get('nb'),
         or: params.get('or')
       };
     }
